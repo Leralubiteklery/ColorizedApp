@@ -81,14 +81,23 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="KGP-0Z-GLi">
                                         <rect key="frame" x="103" y="0.0" width="293.33333333333331" height="135"/>
                                         <subviews>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="zvj-Hu-8ab">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="zvj-Hu-8ab">
                                                 <rect key="frame" x="-2" y="0.0" width="297.33333333333331" height="31"/>
+                                                <connections>
+                                                    <action selector="redSliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="LyB-2L-LEY"/>
+                                                </connections>
                                             </slider>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="SOc-g7-kzW">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="SOc-g7-kzW">
                                                 <rect key="frame" x="-2" y="52" width="297.33333333333331" height="31"/>
+                                                <connections>
+                                                    <action selector="greenSliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="4eV-DY-Y5B"/>
+                                                </connections>
                                             </slider>
-                                            <slider opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="PYO-g5-pUh">
+                                            <slider opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="PYO-g5-pUh">
                                                 <rect key="frame" x="-2" y="104" width="297.33333333333331" height="32"/>
+                                                <connections>
+                                                    <action selector="blueSliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="Utp-RT-dbb"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                     </stackView>
@@ -108,6 +117,15 @@
                             <constraint firstItem="Ob1-vn-ix8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="pvs-Uj-QJu"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="blueLabel" destination="NNw-nG-CcZ" id="XNX-K7-D6Z"/>
+                        <outlet property="blueSlider" destination="PYO-g5-pUh" id="qPe-7l-91C"/>
+                        <outlet property="colorView" destination="Ob1-vn-ix8" id="aXK-XH-L8W"/>
+                        <outlet property="greenLabel" destination="4lL-Si-Djt" id="sNF-KL-xL9"/>
+                        <outlet property="greenSlider" destination="SOc-g7-kzW" id="xcI-Q8-X2g"/>
+                        <outlet property="redLabel" destination="mM7-EC-9gU" id="7jB-am-J5S"/>
+                        <outlet property="redSlider" destination="zvj-Hu-8ab" id="APS-fV-23t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
