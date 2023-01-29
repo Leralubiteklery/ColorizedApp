@@ -21,14 +21,27 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        colorView.layer.cornerRadius = 10
-        setUpSliders()
-    }
-    
-    private func setUpSliders() {
+        
         redSlider.minimumTrackTintColor = .red
         greenSlider.minimumTrackTintColor = .green
         blueSlider.minimumTrackTintColor = .blue
+        
+        colorView.layer.cornerRadius = 15
+        
+        setViewColor()
+        setValue(for: redLabel, greenLabel, blueLabel)
+    }
+    
+    @IBAction func rgbSlider(_ sender: UISlider) {
+        setViewColor()
+        switch sender {
+        case redSlider:
+            redLabel.text = string(from: redSlider)
+        case greenSlider:
+            greenLabel.text = string(from: greenSlider)
+        default:
+            blueLabel.text = string(from: blueSlider)
+        }
     }
     
     private func setViewColor() {
@@ -38,21 +51,23 @@ class ViewController: UIViewController {
             blue: CGFloat(blueSlider.value),
             alpha: 1
         )
-}
-    
-    @IBAction func redSliderMoved(_ sender: Any) {
-        redLabel.text = String(redSlider.value)
-        setViewColor()
     }
     
-    @IBAction func greenSliderMoved(_ sender: Any) {
-        greenLabel.text = String(greenSlider.value)
-        setViewColor()
+    private func setValue(for labels: UILabel...) {
+        labels.forEach { label in
+            switch label {
+            case redLabel:
+                redLabel.text = string(from: redSlider)
+            case greenLabel:
+                greenLabel.text = string(from: greenSlider)
+            default:
+                blueLabel.text = string(from: blueSlider)
+            }
+        }
     }
     
-    @IBAction func blueSliderMoved(_ sender: Any) {
-        blueLabel.text = String(blueSlider.value)
-        setViewColor()
+    private func string(from slider: UISlider) -> String {
+        String(format: "%.2f", slider.value)
     }
 }
 

@@ -84,19 +84,19 @@
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="zvj-Hu-8ab">
                                                 <rect key="frame" x="-2" y="0.0" width="253" height="31"/>
                                                 <connections>
-                                                    <action selector="redSliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="LyB-2L-LEY"/>
+                                                    <action selector="rgbSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="8Wi-qG-mvE"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="SOc-g7-kzW">
                                                 <rect key="frame" x="-2" y="58" width="253" height="31"/>
                                                 <connections>
-                                                    <action selector="greenSliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="4eV-DY-Y5B"/>
+                                                    <action selector="rgbSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="opk-Fg-Mko"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="PYO-g5-pUh">
                                                 <rect key="frame" x="-2" y="116" width="253" height="31"/>
                                                 <connections>
-                                                    <action selector="blueSliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="Utp-RT-dbb"/>
+                                                    <action selector="rgbSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="QRk-FP-Sig"/>
                                                 </connections>
                                             </slider>
                                         </subviews>
