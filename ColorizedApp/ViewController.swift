@@ -38,9 +38,7 @@ class ViewController: UIViewController {
             blue: CGFloat(blueSlider.value),
             alpha: 1
         )
-        
-        print(redSlider.value, blueSlider.value, greenSlider.value)
-    }
+}
     
     @IBAction func redSliderMoved(_ sender: Any) {
         redLabel.text = String(redSlider.value)
