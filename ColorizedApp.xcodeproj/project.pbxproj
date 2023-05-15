@@ -39,6 +39,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED712BDE2A12BB04001B8E5A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				ED9B5D0F2981C58A00D0B603 /* AppDelegate.swift */,
+				ED9B5D112981C58A00D0B603 /* SceneDelegate.swift */,
+				ED9B5D1D2981C58C00D0B603 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		ED712BDF2A12BB11001B8E5A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ED9B5D132981C58A00D0B603 /* SettingsViewController.swift */,
+				ED712BDC2A127869001B8E5A /* MainViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ED712BE02A12BB2E001B8E5A /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				ED9B5D152981C58A00D0B603 /* Main.storyboard */,
+				ED9B5D1A2981C58C00D0B603 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		ED712BE12A12BB3C001B8E5A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ED9B5D182981C58C00D0B603 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		ED9B5D032981C58A00D0B603 = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +94,10 @@
 		ED9B5D0E2981C58A00D0B603 /* ColorizedApp */ = {
 			isa = PBXGroup;
 			children = (
-				ED9B5D0F2981C58A00D0B603 /* AppDelegate.swift */,
-				ED9B5D112981C58A00D0B603 /* SceneDelegate.swift */,
-				ED9B5D132981C58A00D0B603 /* SettingsViewController.swift */,
-				ED9B5D152981C58A00D0B603 /* Main.storyboard */,
-				ED712BDC2A127869001B8E5A /* MainViewController.swift */,
-				ED9B5D182981C58C00D0B603 /* Assets.xcassets */,
-				ED9B5D1A2981C58C00D0B603 /* LaunchScreen.storyboard */,
-				ED9B5D1D2981C58C00D0B603 /* Info.plist */,
+				ED712BDE2A12BB04001B8E5A /* App */,
+				ED712BDF2A12BB11001B8E5A /* ViewControllers */,
+				ED712BE02A12BB2E001B8E5A /* Storyboards */,
+				ED712BE12A12BB3C001B8E5A /* Resources */,
 			);
 			path = ColorizedApp;
 			sourceTree = "<group>";
