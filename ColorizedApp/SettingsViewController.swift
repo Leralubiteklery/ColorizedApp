@@ -7,7 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SettingsViewController: UIViewController {
+    
+    var mainViewColor: UIColor!
     
     @IBOutlet var colorView: UIView!
     
@@ -22,13 +24,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setInitialSliderValue()
+        
         redSlider.minimumTrackTintColor = .red
         greenSlider.minimumTrackTintColor = .green
         blueSlider.minimumTrackTintColor = .blue
         
         colorView.layer.cornerRadius = 15
         
-        setViewColor()
         setValue(for: redLabel, greenLabel, blueLabel)
     }
     
@@ -64,6 +67,14 @@ class ViewController: UIViewController {
                 blueLabel.text = string(from: blueSlider)
             }
         }
+    }
+    
+    private func setInitialSliderValue() {
+        let ciColor = CIColor(color: mainViewColor)
+        
+        redSlider.value = Float(ciColor.red)
+        greenSlider.value = Float(ciColor.green)
+        blueSlider.value = Float(ciColor.blue)
     }
     
     private func string(from slider: UISlider) -> String {
