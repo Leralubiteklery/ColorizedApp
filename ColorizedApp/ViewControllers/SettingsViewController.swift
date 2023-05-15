@@ -10,6 +10,7 @@ import UIKit
 class SettingsViewController: UIViewController {
     
     var mainViewColor: UIColor!
+    var delegate: SettingsViewControllerDelegate!
     
     @IBOutlet var colorView: UIView!
     
@@ -45,6 +46,11 @@ class SettingsViewController: UIViewController {
         default:
             blueLabel.text = string(from: blueSlider)
         }
+    }
+    
+    @IBAction func doneButtonPressed() {
+        delegate.setColor(for: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+        dismiss(animated: true)
     }
     
     private func setViewColor() {
