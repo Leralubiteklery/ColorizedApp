@@ -9,9 +9,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
-    var mainViewColor: UIColor!
-    var delegate: SettingsViewControllerDelegate!
-    
+    // MARK: - IB Outlets
     @IBOutlet var colorView: UIView!
     
     @IBOutlet var redLabel: UILabel!
@@ -22,66 +20,73 @@ class SettingsViewController: UIViewController {
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
     
+    // MARK: - Public Properties
+    var delegate: SettingsViewControllerDelegate!
+    var viewColor: UIColor!
+    
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setInitialSliderValue()
-        
+     
         redSlider.minimumTrackTintColor = .red
         greenSlider.minimumTrackTintColor = .green
         blueSlider.minimumTrackTintColor = .blue
         
         colorView.layer.cornerRadius = 15
+        colorView.backgroundColor = viewColor
         
+        setValue(for: redSlider, greenSlider, blueSlider)
         setValue(for: redLabel, greenLabel, blueLabel)
     }
     
+    // MARK: - IB Actions
     @IBAction func rgbSlider(_ sender: UISlider) {
-        setViewColor()
         switch sender {
         case redSlider:
-            redLabel.text = string(from: redSlider)
+            setValue(for: redLabel)
         case greenSlider:
-            greenLabel.text = string(from: greenSlider)
+            setValue(for: greenLabel)
         default:
-            blueLabel.text = string(from: blueSlider)
+            setValue(for: blueLabel)
         }
+        
+        setColor()
     }
     
     @IBAction func doneButtonPressed() {
-        delegate.setColor(for: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+        delegate.setColor(colorView.backgroundColor ?? .white)
         dismiss(animated: true)
     }
     
-    private func setViewColor() {
+    // MARK: - Private Methods
+    private func setColor() {
         colorView.backgroundColor = UIColor(
             red: CGFloat(redSlider.value),
             green: CGFloat(greenSlider.value),
             blue: CGFloat(blueSlider.value),
-            alpha: 1
-        )
+            alpha: 1)
     }
     
-    private func setValue(for labels: UILabel...) {
-        labels.forEach { label in
-            switch label {
-            case redLabel:
-                redLabel.text = string(from: redSlider)
-            case greenLabel:
-                greenLabel.text = string(from: greenSlider)
-            default:
-                blueLabel.text = string(from: blueSlider)
+    private func setValue(for colorSliders: UISlider...) {
+        let ciColor = CIColor(color: viewColor)
+        colorSliders.forEach { slider in
+            switch slider {
+            case redSlider: redSlider.value = Float(ciColor.red)
+            case greenSlider: greenSlider.value = Float(ciColor.green)
+            default: blueSlider.value = Float(ciColor.blue)
             }
         }
     }
     
-    private func setInitialSliderValue() {
-        let ciColor = CIColor(color: mainViewColor)
-        
-        redSlider.value = Float(ciColor.red)
-        greenSlider.value = Float(ciColor.green)
-        blueSlider.value = Float(ciColor.blue)
-    }
+    private func setValue(for labels: UILabel...) {
+            labels.forEach { label in
+                switch label {
+                case redLabel: redLabel.text = string(from: redSlider)
+                case greenLabel: greenLabel.text = string(from: greenSlider)
+                default: blueLabel.text = string(from: blueSlider)
+                }
+            }
+        }
     
     private func string(from slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
