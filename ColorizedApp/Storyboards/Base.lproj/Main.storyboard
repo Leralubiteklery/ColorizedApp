@@ -39,13 +39,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ob1-vn-ix8">
-                                <rect key="frame" x="20" y="25" width="335" height="193"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="193" id="flt-AQ-Ebs"/>
-                                </constraints>
-                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="99s-Q6-HrX">
                                 <rect key="frame" x="16" y="289" width="343" height="138"/>
                                 <subviews>
@@ -127,20 +120,29 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="SAR-4o-R8e">
                                         <rect key="frame" x="293" y="0.0" width="50" height="138"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nm4-fE-F0t">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nm4-fE-F0t">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="dAV-EP-pkb"/>
+                                                </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bGe-jJ-MH6">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bGe-jJ-MH6">
                                                 <rect key="frame" x="0.0" y="52" width="50" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="7mD-SO-X1M"/>
+                                                </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UVU-Q8-HE4">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UVU-Q8-HE4">
                                                 <rect key="frame" x="0.0" y="104" width="50" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="kvF-za-6l0"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -160,6 +162,13 @@
                                     <action selector="doneButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wla-1F-XQQ"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ob1-vn-ix8">
+                                <rect key="frame" x="20" y="20" width="335" height="193"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="193" id="flt-AQ-Ebs"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
@@ -177,16 +186,19 @@
                     <connections>
                         <outlet property="blueLabel" destination="NNw-nG-CcZ" id="XNX-K7-D6Z"/>
                         <outlet property="blueSlider" destination="PYO-g5-pUh" id="qPe-7l-91C"/>
+                        <outlet property="blueTextField" destination="UVU-Q8-HE4" id="X0s-eB-cmV"/>
                         <outlet property="colorView" destination="Ob1-vn-ix8" id="aXK-XH-L8W"/>
                         <outlet property="greenLabel" destination="4lL-Si-Djt" id="sNF-KL-xL9"/>
                         <outlet property="greenSlider" destination="SOc-g7-kzW" id="xcI-Q8-X2g"/>
+                        <outlet property="greenTextField" destination="bGe-jJ-MH6" id="O1b-fW-5LX"/>
                         <outlet property="redLabel" destination="mM7-EC-9gU" id="7jB-am-J5S"/>
                         <outlet property="redSlider" destination="zvj-Hu-8ab" id="APS-fV-23t"/>
+                        <outlet property="redTextField" destination="nm4-fE-F0t" id="iPT-j3-bq7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="864.79999999999995" y="81.409295352323838"/>
+            <point key="canvasLocation" x="1049" y="82"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hSl-R7-OqL">
